@@ -1,17 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+/* eslint-disable no-unused-vars */
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { ToastContainer } from 'react-toastify'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// eslint-disable-next-line no-unused-vars
+// import Login from './containers/login'
+import Routes from '../src/routes/routes'
+import AppProvaider from './hooks'
+import Globalstyles from './styles/globalstyles'
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// eslint-disable-next-line react/no-deprecated
+ReactDOM.render(
+  <>
+    <AppProvaider>
+      <Routes />
+    </AppProvaider>
+    <ToastContainer autoClose={3000} theme="colored" />
+    <Globalstyles />
+  </>,
+
+  document.getElementById('root')
+)
