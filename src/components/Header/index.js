@@ -10,6 +10,7 @@ import {
   ContainerRigth,
   ContainerText,
   Line,
+  MenorLine,
   PageLink,
   PageLinkExit
 } from './styles'
@@ -31,11 +32,12 @@ export function Header() {
         <PageLink onClick={() => push('/')} isActive={pathname === '/'}>
           Home
         </PageLink>
+        <MenorLine></MenorLine>
         <PageLink
           onClick={() => push('/produtos')}
           isActive={pathname.includes('/produtos')}
         >
-          Ver produtos
+          Cardápio
         </PageLink>
       </ContainerLeft>
       <ContainerRigth>

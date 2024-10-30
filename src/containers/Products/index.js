@@ -2,15 +2,14 @@ import React, { useEffect, useState } from 'react'
 
 import PropTypes from 'prop-types'
 
-import BannerProducts from '../../assets/banner-produtos.svg'
 import { CardsProducts } from '../../components'
 import api from '../../services/api'
 import {
-  CategoriesMenu,
-  CategoryButton,
+  CategoryNames,
   Container,
   ProductsContainer,
-  ProductsImg
+  ProductsImg,
+  Line
 } from './styles'
 
 export function Products({ location: { state } }) {
@@ -18,24 +17,22 @@ export function Products({ location: { state } }) {
   if (state?.categoryId) {
     categoryId = state.categoryId
   }
+
   const [categories, setCategories] = useState([])
   const [products, setProducts] = useState([])
   const [filteredProducts, setFilterProducts] = useState([])
-  const [activeCategory, setActiveCategory] = useState(categoryId)
+  const [activeCategory] = useState(categoryId)
+  const [activeCategoryName, setActiveCategoryName] = useState('')
 
   useEffect(() => {
     async function loadCategories() {
       const { data } = await api.get('categories')
-
-      const newCategories = [{ id: 0, name: 'Todas' }, ...data]
-
+      const newCategories = [{ id: 0, name: 'Todos' }, ...data]
       setCategories(newCategories)
     }
 
     async function loadProducts() {
       const { data } = await api.get('products')
-      console.log(data)
-
       setProducts(data)
     }
 
@@ -46,33 +43,30 @@ export function Products({ location: { state } }) {
   useEffect(() => {
     if (activeCategory === 0) {
       setFilterProducts(products)
+      setActiveCategoryName('Todos') // Categoria padrão
     } else {
       const newFilterProducts = products.filter(
         product => product.category_id === activeCategory
       )
-
       setFilterProducts(newFilterProducts)
+
+      const selectedCategory = categories.find(
+        category => category.id === activeCategory
+      )
+      setActiveCategoryName(selectedCategory?.name || '')
     }
-  }, [activeCategory, products])
+  }, [activeCategory, products, categories])
 
   return (
     <Container>
-      <ProductsImg src={BannerProducts} alt="banner-products" />
-      <CategoriesMenu>
-        {categories &&
-          categories.map(category => (
-            <CategoryButton
-              type="button"
-              key={category.id}
-              isActiveCategory={activeCategory === category.id}
-              onClick={() => {
-                setActiveCategory(category.id)
-              }}
-            >
-              {category.name}
-            </CategoryButton>
-          ))}
-      </CategoriesMenu>
+      <ProductsImg>
+        <h1>O MELHOR HAMBÚRGUER ESTÁ AQUI!</h1>
+        <p>Esse cardápio está irresistível!</p>
+      </ProductsImg>
+      <CategoryNames>
+        <p>{`${activeCategoryName} - Cardápio`}</p>
+      </CategoryNames>
+      <Line></Line>
       <ProductsContainer>
         {filteredProducts &&
           filteredProducts.map(product => (

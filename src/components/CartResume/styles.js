@@ -18,7 +18,8 @@ export const Container = styled.div`
       'delivery-tax delivery-price';
     .title {
       grid-area: title;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+      color: #ffffff;
     }
 
     .items {
@@ -35,6 +36,13 @@ export const Container = styled.div`
 
     .delivery-price {
       grid-area: delivery-price;
+    }
+    h2 {
+      padding: 8px;
+      background-color: rgba(51, 50, 50, 1);
+      border-radius: 5px;
+      width: 300px;
+      padding-left: 3rem;
     }
   }
 

@@ -43,24 +43,26 @@ export function Login() {
   })
 
   const onSubmit = async clientData => {
-    try {
-      const { data } = await toast.promise(
-        api.post('sessions', {
-          email: clientData.email,
-          password: clientData.password
-        }),
-        {
-          pending: 'Verificando seus dados',
-          success: 'Seja bem-vindo(a)'
-        }
-      )
-      putUserData(data)
-    } catch (error) {
-      console.error('Erro ao tentar fazer login:', error)
-      toast.error('Verifique seu email e senha', error)
-    }
+    const { data } = await toast.promise(
+      api.post('sessions', {
+        email: clientData.email,
+        password: clientData.password
+      }),
+      {
+        pending: 'Verificando seus dados',
+        success: 'Seja bem-vindo(a)',
+        error: 'Verifique seu e-mail e senha'
+      }
+    )
+
+    putUserData(data)
+
     setTimeout(() => {
-      history.push('/')
+      if (data.admin) {
+        history.push('/pedidos')
+      } else {
+        history.push('/')
+      }
     }, 1000)
   }
 

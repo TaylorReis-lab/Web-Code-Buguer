@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Backgraund from '../../assets/image.png'
+import ContainerBanner from '../../assets/background.svg'
 
 export const Container = styled.div`
   height: 100vh;
@@ -8,7 +8,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url('${Backgraund}') center/cover no-repeat;
+  background: url('${ContainerBanner}') center/cover no-repeat;
   background-size: cover;
 `
 
@@ -16,6 +16,7 @@ export const LoginImage = styled.img`
   height: 70%;
 `
 export const ContainerItens = styled.div`
+  background: url('${ContainerBanner}');
   background-color: #373737;
   border-radius: 0 10px 10px 0;
   height: 70%;

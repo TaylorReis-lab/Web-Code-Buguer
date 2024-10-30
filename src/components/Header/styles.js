@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   height: 72px;
-  background-color: #ffffff;
+  background-color: rgba(31, 31, 31, 1);
   box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
@@ -27,21 +27,27 @@ export const ContainerText = styled.div`
     font-weight: 300;
     font-size: 14px;
     line-height: 16px;
-    color: #555555;
+    color: #ffffff;
   }
 `
 
 export const PageLink = styled.a`
   cursor: pointer;
   text-decoration: none;
-  color: ${props => (props.isActive ? '#9758a6' : '#555555')};
+  color: ${props => (props.isActive ? '#9758a6' : '#ffffff')};
   font-size: 16px;
   line-height: 19px;
   font-weight: ${props => (props.isActive ? 'bold' : 'normal')};
 `
+
+export const MenorLine = styled.div`
+  height: 20px;
+  border-right: 1px solid rgba(98, 94, 94, 1);
+`
+
 export const Line = styled.div`
   height: 40px;
-  border-right: 0.5px solid #bababa;
+  border-right: 0.5px solid rgba(98, 94, 94, 1);
 `
 export const PageLinkExit = styled.a`
   font-style: normal;
