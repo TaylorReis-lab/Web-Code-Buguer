@@ -27,7 +27,20 @@ export const Container = styled.div`
   }
 `
 
-export const CategoryImg = styled.img``
+export const Line = styled.div`
+  height: 4px;
+  width: 57px;
+  border-bottom: 4px solid #9758a6;
+`
+
+export const CategoryText = styled.div`
+  h1 {
+    font-size: 32px;
+    color: #9758a6;
+    line-height: 48px;
+    font-weight: 800;
+  }
+`
 
 export const ContainerItems = styled.div`
   display: flex;

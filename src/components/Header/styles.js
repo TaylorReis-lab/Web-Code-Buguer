@@ -13,12 +13,23 @@ export const Container = styled.div`
 export const ContainerLeft = styled.div`
   display: flex;
   gap: 30px;
+  align-items: center;
+  margin-right: 320px;
 `
 
 export const ContainerRigth = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+`
+
+export const ContainerLogo = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 150px;
+  img {
+    width: 100px;
+  }
 `
 
 export const ContainerText = styled.div`
@@ -58,5 +69,5 @@ export const PageLinkExit = styled.a`
   align-items: center;
   cursor: pointer;
 
-  color: #9758a6;
+  color: #9e1c00;
 `

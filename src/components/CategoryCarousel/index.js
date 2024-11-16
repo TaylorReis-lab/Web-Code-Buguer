@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Carousel from 'react-elastic-carousel'
 
-import Category from '../../assets/CATEGORIAS.png'
 import api from '../../services/api'
-import { Button, CategoryImg, Container, ContainerItems, Img } from './styles'
+import {
+  Button,
+  Container,
+  ContainerItems,
+  Img,
+  CategoryText,
+  Line
+} from './styles'
 
 export function CategoryCarrosel() {
   const [categories, setCategories] = useState([])
@@ -27,7 +33,10 @@ export function CategoryCarrosel() {
 
   return (
     <Container>
-      <CategoryImg src={Category} alt="logo-categoria" />
+      <CategoryText>
+        <h1>Categorias</h1>
+      </CategoryText>
+      <Line />
       <Carousel
         itemsToShow={5}
         style={{ width: '90%' }}

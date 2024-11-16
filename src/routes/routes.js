@@ -5,6 +5,7 @@ import {
   Switch
 } from 'react-router-dom/cjs/react-router-dom.min'
 
+import { CopyRight } from '../components'
 import { Admin, Cart, Home, Login, Products, SingUP } from '../containers'
 import PrivateRoute from './private-route'
 
@@ -19,6 +20,7 @@ function Routes() {
         <PrivateRoute component={Cart} path="/carrinho" />
         <PrivateRoute component={Admin} path="/pedidos" isAdmin={true} />
       </Switch>
+      <CopyRight />
     </Router>
   )
 }

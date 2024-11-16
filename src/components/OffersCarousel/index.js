@@ -2,11 +2,17 @@ import React, { useEffect, useState } from 'react'
 import Carousel from 'react-elastic-carousel'
 import { useHistory } from 'react-router-dom'
 
-import Offers from '../../assets/OFERTAS.png'
 import { useCard } from '../../hooks/CardContext'
 import api from '../../services/api'
 import formartCurrency from '../../utils/formartCurrency'
-import { Button, CategoryImg, Container, ContainerItems, Img } from './styles'
+import {
+  Button,
+  Container,
+  ContainerItems,
+  Img,
+  CategoryText,
+  Line
+} from './styles'
 
 export function OffersCarousel() {
   const [offers, setOffers] = useState([])
@@ -38,7 +44,10 @@ export function OffersCarousel() {
 
   return (
     <Container>
-      <CategoryImg src={Offers} alt="logo-ofertas" />
+      <CategoryText>
+        <h1>OFERTAS DO DIA</h1>
+      </CategoryText>
+      <Line />
       <Carousel
         itemsToShow={5}
         style={{ width: '90%' }}

@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,13 +25,29 @@ export const Container = styled.div`
   }
 `
 
-export const CategoryImg = styled.img``
+export const CategoryText = styled.div`
+  h1 {
+    font-size: 32px;
+    color: #61a120;
+    line-height: 48px;
+    font-weight: 800;
+  }
+`
+export const Line = styled.div`
+  height: 4px;
+  width: 57px;
+  border-bottom: 4px solid #61a120;
+`
 
 export const H1 = styled.p``
 
 export const ContainerItems = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: #ffffff;
+  width: 260px;
+  height: 219px;
+  border-radius: 28.48px;
 
   p {
     font-size: 18px;
@@ -63,7 +78,8 @@ export const Button = styled.button`
   font-weight: bold;
   background-color: #9758a6;
   color: #ffffff;
-  border-radius: 8px;
+  border-radius: 7.78px;
+  align-items: center;
   cursor: pointer;
   &:hover {
     opacity: 0.8;
